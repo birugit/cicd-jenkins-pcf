@@ -1,5 +1,5 @@
 applications:
-	name: cicd-jenkins-pcf
+	name: CICDPCF
 	instances: 1
 	memory: 800m
 	path: target/CICDPCF-0.0.1-SNAPSHOT.jar

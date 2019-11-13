@@ -3,15 +3,12 @@ pipeline{
     stages{
         
         stage('Build'){
-            
-            steps{
-                withMaven(maven: 'maven-3.6.2'){
-                    
-                    sh 'mvn clean package'
-                }
-
+            steps('Maven package'){
+                    def mvnHome = tool name: 'maven-3.6.2', type: 'maven'
+                    def mvnCMD = "$mvnHome/bin/mvn"
+                    sh label: '', script: "$mvnCMD clean package"
             }
-
+            
         }
         stage('Deploy'){
             
